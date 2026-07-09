@@ -19,7 +19,7 @@ const projects: Project[] = [
       "SQLite-backed run history and automated Excel report exports",
       "Interactive dashboards for forecasting and variance analysis",
     ],
-    linkLabel: "Source ↗",
+    linkLabel: "Source Code ↗",
     linkHref: "https://github.com/HarishKrishnaan/fpa-dashboard",
   },
   {
@@ -29,7 +29,7 @@ const projects: Project[] = [
       "Front-end counting application handling user actions, edge cases, and errors",
       "Tested across varied inputs, refined for usability and reliability",
     ],
-    linkLabel: "Source ↗",
+    linkLabel: "Source Code ↗",
     linkHref: "https://github.com/HarishKrishnaan/Row-Counter",
   },
 ];

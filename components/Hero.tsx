@@ -13,7 +13,7 @@ export default function Hero() {
       </h1>
       <p className="text-lg sm:text-[18px] text-soft mt-5 max-w-[50ch]">
         Software developer &amp; recent Rutgers CS grad, climbing toward
-        front-end and UI/UX work worth building.
+        a future full of fulfilling front-end and UI/UX work.
       </p>
       <div className="flex gap-8 sm:gap-9 mt-9 font-display">
         <div>
@@ -29,7 +29,7 @@ export default function Hero() {
           </div>
         </div>
         <div>
-          <div className="text-xl sm:text-[22px] font-bold text-gold">NJ</div>
+          <div className="text-xl sm:text-[22px] font-bold text-gold">Chesterfield, NJ</div>
           <div className="text-[11px] uppercase tracking-wide text-soft mt-1">
             Based in
           </div>

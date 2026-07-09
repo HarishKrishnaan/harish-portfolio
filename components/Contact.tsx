@@ -1,8 +1,8 @@
 // Replace the LinkedIn href below with your real profile URL once you have it handy.
 const links = [
   { label: "Email", href: "mailto:harkrishnan2e@gmail.com" },
-  { label: "GitHub", href: "https://github.com/HarishKrishnaan" },
-  { label: "LinkedIn", href: "#" },
+  { label: "GitHub", href: "https://github.com/HarishKrishnaan/profile" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/harish-krishnan-568579325/" },
   { label: "Resume", href: "/resume.pdf" },
 ];
 

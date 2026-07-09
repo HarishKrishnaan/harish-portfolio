@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Pitch from "./Pitch";
 
-const interests = ["Rock climbing", "Hiking", "Videogames", "New friends"];
+const interests = ["Rock climbing", "Hiking", "Fitness", "New friends"];
 
 export default function About() {
   return (
@@ -18,12 +18,12 @@ export default function About() {
         <div>
           <p className="text-soft text-[15.5px] leading-relaxed max-w-[52ch]">
             Computer Science graduate from Rutgers University, drawn to web
-            design, front-end development, and UI/UX — anything that feels
+            design, front-end development, UI/UX and any projects that are
             impactful and fulfilling to build.
           </p>
           <p className="text-soft text-[15.5px] leading-relaxed max-w-[52ch] mt-3">
-            When I&apos;m off the keyboard, I&apos;m usually on a rock face,
-            on a trail, in a videogame, or making new friends along the way.
+            When I&apos;m off the keyboard, I&apos;m usually on a rock wall,
+            on a trail, in the gym, or having a good time with new friends.
           </p>
           <div className="flex flex-wrap gap-2 mt-4">
             {interests.map((tag) => (
