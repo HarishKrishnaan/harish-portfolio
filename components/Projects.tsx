@@ -1,15 +1,17 @@
 import Pitch from "./Pitch";
 
+type ProjectLink = {
+  label: string;
+  href: string;
+};
+
 type Project = {
   name: string;
   stack: string;
   bullets: string[];
-  linkLabel: string;
-  linkHref: string;
+  links: ProjectLink[];
 };
 
-// Update fpa's linkHref once the Streamlit app is deployed —
-// swap it from the GitHub source to the live share.streamlit.io URL.
 const projects: Project[] = [
   {
     name: "FP&A Forecasting & Variance Dashboard",
@@ -19,8 +21,10 @@ const projects: Project[] = [
       "SQLite-backed run history and automated Excel report exports",
       "Interactive dashboards for forecasting and variance analysis",
     ],
-    linkLabel: "Source Code ↗",
-    linkHref: "https://github.com/HarishKrishnaan/fpa-dashboard",
+    links: [
+      { label: "Live Demo ↗", href: "https://fpnadashboardhk.streamlit.app/" },
+      { label: "Source Code ↗", href: "https://github.com/HarishKrishnaan/fpa-dashboard" },
+    ],
   },
   {
     name: "Row Counter",
@@ -29,8 +33,9 @@ const projects: Project[] = [
       "Front-end counting application handling user actions, edge cases, and errors",
       "Tested across varied inputs, refined for usability and reliability",
     ],
-    linkLabel: "Source Code ↗",
-    linkHref: "https://github.com/HarishKrishnaan/Row-Counter",
+    links: [
+      { label: "Source Code ↗", href: "https://github.com/HarishKrishnaan/Row-Counter" },
+    ],
   },
 ];
 
@@ -44,14 +49,19 @@ export default function Projects() {
               <h3 className="font-display font-bold text-[19px] text-cream">
                 {p.name}
               </h3>
-              <a
-                href={p.linkHref}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[12.5px] text-gold border-b border-gold no-underline"
-              >
-                {p.linkLabel}
-              </a>
+              <div className="flex gap-4 flex-wrap">
+                {p.links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[12.5px] text-gold border-b border-gold no-underline"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
             <p className="text-[12.5px] text-soft my-2 tracking-wide">
               {p.stack}
