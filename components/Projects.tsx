@@ -34,6 +34,7 @@ const projects: Project[] = [
       "Tested across varied inputs, refined for usability and reliability",
     ],
     links: [
+      { label: "Live Demo ↗", href: "https://row-counter-inky.vercel.app/" },
       { label: "Source Code ↗", href: "https://github.com/HarishKrishnaan/Row-Counter" },
     ],
   },
