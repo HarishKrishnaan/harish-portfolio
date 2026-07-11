@@ -1,3 +1,4 @@
+// components/Projects.tsx
 import Pitch from "./Pitch";
 
 type ProjectLink = {
@@ -45,7 +46,10 @@ export default function Projects() {
     <Pitch id="projects" label="Pitch 3 — Routes climbed" title="Projects">
       <div className="flex flex-col gap-4">
         {projects.map((p) => (
-          <div key={p.name} className="bg-panel rounded-lg px-6 sm:px-7 py-6">
+          <div
+            key={p.name}
+            className="bg-panel rounded-lg px-6 sm:px-7 py-6 transition-shadow duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)] border border-transparent hover:border-gold/30"
+          >
             <div className="flex justify-between items-baseline flex-wrap gap-3">
               <h3 className="font-display font-bold text-[19px] text-cream">
                 {p.name}
@@ -57,7 +61,7 @@ export default function Projects() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[12.5px] text-gold border-b border-gold no-underline"
+                    className="text-[12.5px] text-gold border-b border-gold no-underline transition-all duration-200 hover:text-cream hover:border-cream"
                   >
                     {link.label}
                   </a>
