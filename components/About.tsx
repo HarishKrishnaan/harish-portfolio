@@ -1,3 +1,4 @@
+// components/About.tsx
 import Image from "next/image";
 import Pitch from "./Pitch";
 
@@ -6,27 +7,29 @@ const interests = ["Rock climbing", "Hiking", "Videogames", "New friends"];
 export default function About() {
   return (
     <Pitch id="about" label="Pitch 1 — About" title="Who's climbing">
-      <div className="flex flex-col sm:flex-row gap-7 items-start">
-        <div className="group relative w-[110px] shrink-0">
-          <Image
-            src="/photo.jpg"
-            alt="Harish Krishnan"
-            width={110}
-            height={110}
-            className="relative rounded-md object-cover contrast-[1.05] w-[110px] h-[110px] shadow-md transition-transform duration-300 ease-out origin-top-left group-hover:scale-[1.35] group-hover:shadow-xl group-hover:z-20"
-            priority
-          />
-          <span className="absolute left-0 top-[118px] w-[150px] text-[11px] text-soft opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 pointer-events-none">
+      <div className="flex flex-row gap-7 items-start">
+        <div className="shrink-0">
+          <div className="peer relative w-[165px] h-[165px] hover:w-[330px] hover:h-[330px] transition-[width,height] duration-500 ease-out rounded-md overflow-hidden shadow-md">
+            <Image
+              src="/photo.jpg"
+              alt="Harish Krishnan"
+              fill
+              sizes="330px"
+              className="object-cover"
+              priority
+            />
+          </div>
+          <p className="mt-2 text-[11px] text-soft opacity-0 peer-hover:opacity-100 transition-opacity duration-300 delay-150">
             Kyrgyzstan — 2023
-          </span>
+          </p>
         </div>
-        <div>
-          <p className="text-soft text-[15.5px] leading-relaxed max-w-[52ch]">
+        <div className="flex-1 min-w-0">
+          <p className="text-soft text-[15.5px] leading-relaxed">
             Computer Science graduate from Rutgers University, drawn to web
             design, front-end development, and UI/UX — anything that feels
             impactful and fulfilling to build.
           </p>
-          <p className="text-soft text-[15.5px] leading-relaxed max-w-[52ch] mt-3">
+          <p className="text-soft text-[15.5px] leading-relaxed mt-3">
             When I&apos;m off the keyboard, I&apos;m usually on a rock face,
             on a trail, in a videogame, or making new friends along the way.
           </p>
