@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Pitch from "./Pitch";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrgngz";
+
 type FormData = {
   name: string;
   email: string;
@@ -24,6 +26,8 @@ export default function Contact() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   function handleChange(field: keyof FormData, value: string) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -32,7 +36,7 @@ export default function Contact() {
     }
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const nextErrors: FormErrors = {};
     if (!form.name.trim()) nextErrors.name = "Please enter your name";
@@ -49,15 +53,33 @@ export default function Contact() {
       return;
     }
 
-    // Not wired to a real send yet — see chat notes on adding
-    // Formspree/EmailJS/Resend once you're happy with this UI.
-    setSubmitted(true);
+    setSending(true);
+    setSendError(false);
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSendError(true);
+      }
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   function handleReset() {
     setForm(initialForm);
     setErrors({});
     setSubmitted(false);
+    setSendError(false);
   }
 
   return (
@@ -179,11 +201,18 @@ export default function Contact() {
                 />
               </div>
 
+              {sendError && (
+                <p className="text-[12px] text-red-400 -mb-1">
+                  Something went wrong sending your message. Please try again, or email me directly.
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="mt-1 bg-gold text-bg font-display font-bold text-[13px] uppercase tracking-wide rounded py-3 transition-colors duration-200 hover:bg-cream"
+                disabled={sending}
+                className="mt-1 bg-gold text-bg font-display font-bold text-[13px] uppercase tracking-wide rounded py-3 transition-colors duration-200 hover:bg-cream disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send message →
+                {sending ? "Sending..." : "Send message →"}
               </button>
             </form>
           )}
