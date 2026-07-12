@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Sidebar />
-      <main className="relative max-w-[780px] mx-auto px-4 sm:px-6">
+      <main className="relative max-w-[920px] mx-auto px-4 sm:px-6">
         <RouteLine />
         <Hero />
         <About />

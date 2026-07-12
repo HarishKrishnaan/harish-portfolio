@@ -35,7 +35,7 @@ export default function Sidebar() {
   return (
     <nav
       aria-label="Section navigation"
-      className="hidden xl:flex flex-col gap-2.5 fixed left-10 top-1/2 -translate-y-1/2 w-[150px]"
+      className="hidden xl:flex flex-col gap-2.5 fixed left-8 2xl:left-16 top-[120px] w-[150px]"
     >
       {sections.map((s) => {
         const isActive = active === s.id;

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="border-t border-line/40">
-      <div className="max-w-[780px] mx-auto px-4 sm:px-6 py-14 grid sm:grid-cols-3 gap-10">
+      <div className="max-w-[920px] mx-auto pl-14 sm:pl-[68px] pr-4 sm:pr-6 py-14 grid sm:grid-cols-3 gap-10">
         <div>
           <p className="font-display font-bold text-cream text-[15px]">
             Harish Krishnan
@@ -53,7 +53,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-line/40">
-        <div className="max-w-[780px] mx-auto px-4 sm:px-6 py-5 flex justify-between items-center text-[11.5px] text-soft">
+        <div className="max-w-[920px] mx-auto pl-14 sm:pl-[68px] pr-4 sm:pr-6 py-5 flex justify-between items-center text-[11.5px] text-soft">
           <span>© 2026 Harish Krishnan</span>
           <span>Built with Next.js + TypeScript</span>
         </div>
