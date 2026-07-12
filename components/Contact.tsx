@@ -1,4 +1,3 @@
-// components/Contact.tsx
 const links = [
   { label: "Email", href: "mailto:harkrishnan2e@gmail.com" },
   { label: "GitHub", href: "https://github.com/HarishKrishnaan" },
@@ -8,7 +7,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <footer id="contact" className="relative pl-14 sm:pl-[68px] py-12 sm:py-14 pb-24 scroll-mt-8">
+    <footer id="contact" className="relative pl-14 sm:pl-[68px] py-12 sm:py-14 pb-24 scroll-mt-8 border-t border-line/40">
       <a
         href="#contact"
         aria-label="Jump to Contact section"

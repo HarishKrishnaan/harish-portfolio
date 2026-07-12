@@ -1,4 +1,3 @@
-// components/Projects.tsx
 import Pitch from "./Pitch";
 
 type ProjectLink = {

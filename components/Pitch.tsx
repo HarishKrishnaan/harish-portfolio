@@ -10,7 +10,7 @@ export default function Pitch({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="relative pl-14 sm:pl-[68px] py-12 sm:py-14 scroll-mt-8">
+    <section id={id} className="relative pl-14 sm:pl-[68px] py-12 sm:py-14 scroll-mt-8 border-t border-line/40">
       <a
         href={`#${id}`}
         aria-label={`Jump to ${title} section`}

@@ -1,4 +1,3 @@
-// components/About.tsx
 import Image from "next/image";
 import Pitch from "./Pitch";
 
