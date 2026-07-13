@@ -3,7 +3,7 @@ export default function Hero() {
     <header className="relative pl-14 sm:pl-[68px] pt-16 sm:pt-20 pb-6 sm:pb-8">
       <div
         aria-hidden="true"
-        className="absolute left-0 sm:left-6 top-[52px] sm:top-[80px] w-5 h-5 rounded-full bg-gold border-4 border-bg"
+        className="absolute left-0 sm:left-6 top-[97px] sm:top-[121px] w-5 h-5 rounded-full bg-gold border-4 border-bg"
       />
       <div className="border border-line/50 rounded-md px-6 sm:px-8 py-8 sm:py-10">
         <p className="font-display font-bold text-xs tracking-[0.16em] uppercase text-gold mb-4">

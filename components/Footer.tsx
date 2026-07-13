@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-line/40">
+    <footer id="site-footer" className="border-t border-line/40">
       <div className="max-w-[920px] mx-auto pl-14 sm:pl-[68px] pr-4 sm:pr-6 py-14 grid sm:grid-cols-3 gap-10">
         <div>
           <p className="font-display font-bold text-cream text-[15px]">
