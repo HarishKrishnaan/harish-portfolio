@@ -22,6 +22,6 @@ Then open http://localhost:3000.
 
 ## Roadmap
 
-- Hover states and micro-animations
-- Tabbed navigation
 - Blog section for project write-ups
+- Update with future projects
+- Separate projects page
