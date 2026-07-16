@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Pitch from "./Pitch";
 
-const interests = ["Rock climbing", "Hiking", "Web Design", "Socializing", "Working Out"];
+const interests = ["Rock climbing", "Hiking", "Bouldering", "Weightlifting", "Yoga", "Web Development"];
 
 export default function About() {
   return (
@@ -19,7 +19,7 @@ export default function About() {
             />
           </div>
           <p className="mt-2 w-[165px] text-[11px] text-soft opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
-            Kyrgyzstan — 2023
+            Kyrgyzstan — Summer 2023
           </p>
         </div>
 
@@ -35,8 +35,8 @@ export default function About() {
             fulfilling projects with significant impact.
           </p>
           <p className="mt-3">
-            When I&apos;m off the keyboard, I&apos;m usually on a rock face,
-            on a trail, at the gym, or striking up conversations with strangers.
+            When I&apos;m off the keyboard, I&apos;m usually climbing at a bouldering gym or crag,
+            hiking on a trail, working out at the gym, or spending quality time with good friends.
           </p>
         </div>
       </div>
