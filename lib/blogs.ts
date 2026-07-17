@@ -29,26 +29,26 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         body: [
-          "I needed a portfolio for my job search, but I didn't want another templated one-pager. I landed on \"Basecamp\" — a dark, gold-accented design structured like a climbing route, where each section is a \"pitch\" on the way to a \"summit.\" The theme isn't just decoration: it shaped real structural decisions later on, down to how project links and the sidebar nav are organized.",
+          "I needed a portfolio for my job search, but I didn't want another templated one-pager. I landed on \"Basecamp\", a dark, gold-accented design structured like a climbing route, where each section is a \"pitch\" on the way to a \"summit\" - my contact section. (I'm not a trad climber by any means, but the theme was too good to pass up). The theme isn't just decoration: it shaped real structural decisions later on, down to how project links and the sidebar nav are organized.",
         ],
       },
       {
         heading: "What I built",
         body: [
-          "A Next.js site with a hero, then a sequence of bordered \"pitch\" sections — About, Skills, Projects, Blogs, Contact — connected by a dotted vertical rope with clickable markers that jump to each section. A fixed sidebar tracks scroll position and highlights the active section, alongside a live GitHub streak widget and a card showing what I'm currently building. The contact form validates client-side and sends real messages through Formspree, with no backend of my own required.",
+          "A Next.js site with a hero (my title section), then a sequence of bordered \"pitch\" sections which include: About, Skills, Projects, Blogs, Contact. All pitches are connected by a dotted vertical rope with clickable markers that jump to each section. A fixed sidebar tracks scroll position and highlights the active section, alongside a live GitHub streak widget and a card showing what I'm currently building. The contact form validates client-side and sends real messages through Formspree to allow me to connect and work with anyone on potential impactful projects!",
         ],
       },
       {
         heading: "Technical decisions",
         body: [
-          "I built this in Next.js, TypeScript, and Tailwind specifically because that stack is directly relevant to the front-end roles I'm applying for — I wanted to actually understand every layer, not just glue services together. The bigger architectural decision was making content data-driven rather than hardcoded: Projects and Blogs are both typed arrays rendered through shared components, so adding a new project or post later means adding one object to an array, not touching any layout code.",
+          "I built this in Next.js, TypeScript, and Tailwind specifically because that stack is directly relevant to the front-end roles I'm applying for. I wanted to actually understand every layer, not just glue services together. The bigger architectural decision was making content data-driven rather than hardcoded: Projects and Blogs are both typed arrays rendered through shared components, so adding a new project or post later means adding one object to an array, not touching any layout code. This allows me to continue working on new projects, learn new skills, and easily add those experiences to the relevant parts of my portfolio.",
         ],
       },
       {
         heading: "The challenge that mattered most",
         body: [
-          "My first deploy failed with \"Couldn't find any `pages` or `app` directory\" — a confusing error, since the code clearly had an `app` folder locally. The real cause: a mixed-up manual GitHub upload had left the `app`, `components`, and `public` folders out of the repo entirely, even though the config files made it in. Once I fixed that and got a build to succeed, the site still 404'd on every page — despite `next build` completing cleanly. That one took longer to trace: Vercel had locked in a \"Framework Preset\" of \"Other\" from my very first failed import attempt, before it could detect Next.js, and it never re-checked once real code showed up. Manually resetting the preset fixed it instantly.",
-          "Separately, I kept hitting the same JSX bug shape over and over while pasting code across sessions: an opening tag like `<a` would silently drop, leaving a blank line and a dangling set of attributes with nowhere to go. The first couple of times, it took real digging to diagnose. By the third occurrence, I recognized the pattern on sight — a blank line sitting where a tag name should be, almost always right after a `.map(...)`. That was a good reminder that debugging skill often comes from pattern recognition built through repetition, not from any single fix.",
+          "My first deploy failed with \"Couldn't find any 'pages' or 'app' directory,\" which was a confusing error, since the code clearly had an 'app' folder locally. The real cause was that a mixed-up manual GitHub upload had left the 'app', 'components', and 'public' folders out of the repo entirely, even though the config files made it in. Once I fixed that and got a build to succeed, the site still 404'd on every page — despite 'next build' completing cleanly. That one took longer to trace: Vercel had locked in a \"Framework Preset\" of \"Other\" from my very first failed import attempt, before it could detect Next.js, and it never re-checked once real code showed up. Manually resetting the preset fixed it instantly.",
+          "Separately, I kept hitting the same JSX bug shape over and over while pasting code across sessions: an opening tag like '<a' would silently drop, leaving a blank line and a dangling set of attributes with nowhere to go. The first couple of times, it took real digging to diagnose. By the third occurrence, I recognized the pattern on sight — a blank line sitting where a tag name should be, almost always right after a '.map(...)'. That was a good reminder that debugging skill often comes from pattern recognition built through repetition, not from any single fix.",
         ],
       },
       {
