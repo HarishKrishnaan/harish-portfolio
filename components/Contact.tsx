@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Pitch from "./Pitch";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xykrgngz";
+// ⚠️ Keep your existing real Formspree endpoint here — don't overwrite this
+// line with the placeholder below, it's just shown for reference.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
 type FormData = {
   name: string;
@@ -17,9 +19,9 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 const initialForm: FormData = { name: "", email: "", subject: "", message: "" };
 
 const contactLinks = [
-  { label: "harkrishnan2e@gmail.com", href: "mailto:harkrishnan2e@gmail.com", icon: "✉" },
-  { label: "github.com/HarishKrishnaan", href: "https://github.com/HarishKrishnaan", icon: "{}" },
-  { label: "linkedin.com/in/harish-krishnan", href: "https://www.linkedin.com/in/harish-krishnan-568579325/", icon: "in" },
+  { label: "Email", href: "mailto:harkrishnan2e@gmail.com", icon: "✉" },
+  { label: "GitHub", href: "https://github.com/HarishKrishnaan", icon: "{}" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/harish-krishnan-568579325/", icon: "in" },
 ];
 
 export default function Contact() {
@@ -39,14 +41,14 @@ export default function Contact() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const nextErrors: FormErrors = {};
-    if (!form.name.trim()) nextErrors.name = "Please enter your name";
+    if (!form.name.trim()) nextErrors.name = "Let me know who's reaching out";
     if (!form.email.trim()) {
-      nextErrors.email = "Please enter your email";
+      nextErrors.email = "I'll need an email to write back to";
     } else if (!/^\S+@\S+\.\S+$/.test(form.email)) {
-      nextErrors.email = "Enter a valid email";
+      nextErrors.email = "That email doesn't look quite right";
     }
-    if (!form.subject.trim()) nextErrors.subject = "Please enter a subject";
-    if (!form.message.trim()) nextErrors.message = "Please enter a message";
+    if (!form.subject.trim()) nextErrors.subject = "Give it a quick subject line";
+    if (!form.message.trim()) nextErrors.message = "The message box is empty";
 
     if (Object.keys(nextErrors).length > 0) {
       setErrors(nextErrors);
@@ -83,64 +85,63 @@ export default function Contact() {
   }
 
   return (
-    <Pitch id="contact" label="Summit — Contact" title="Let's connect">
-      <div className="grid sm:grid-cols-2 gap-6">
-        <div>
-          <p className="text-soft text-[15.5px] leading-relaxed max-w-[42ch]">
-            Have a project in mind, a role to fill, or just want to say hi?
-            Send me a message.
-          </p>
-          <div className="flex flex-col gap-3 mt-6">
-            {contactLinks.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel={c.href.startsWith("http") ? "noreferrer" : undefined}
-                className="flex items-center gap-3 text-[13.5px] text-soft no-underline transition-colors duration-200 hover:text-cream"
-              >
-                <span className="w-8 h-8 flex items-center justify-center rounded border border-line text-gold text-[13px] shrink-0">
-                  {c.icon}
-                </span>
-                {c.label}
-              </a>
-            ))}
-          </div>
-        </div>
+    <Pitch id="contact" label="Summit — Contact" title="Send up a flare">
+      <p className="text-soft text-[15.5px] leading-relaxed max-w-[56ch]">
+        Got a project, a role, or just want to talk shop? I read everything that hits my inbox
+      </p>
 
-        <div className="bg-panel rounded-lg p-6 sm:p-7">
-          {submitted ? (
-            <div className="flex flex-col items-center justify-center text-center h-full py-6">
-              <div className="w-11 h-11 rounded bg-gold flex items-center justify-center mb-4">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10.5L8 14.5L16 6" stroke="#20221D" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="font-display font-bold text-cream text-[18px]">Message sent.</h3>
-              <p className="text-soft text-[14px] mt-2 max-w-[32ch]">
-                Thanks for reaching out — I&apos;ll get back to you soon.
-              </p>
-              <button
-                onClick={handleReset}
-                className="mt-4 text-[12.5px] text-gold border-b border-gold hover:text-cream hover:border-cream transition-colors duration-200"
-              >
-                Send another
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-4 mt-5 mb-8">
+        {contactLinks.map((c) => (
+          <a
+            key={c.label}
+            href={c.href}
+            target={c.href.startsWith("http") ? "_blank" : undefined}
+            rel={c.href.startsWith("http") ? "noreferrer" : undefined}
+            className="flex items-center gap-2 text-[13px] text-soft no-underline border border-line rounded-full pl-2 pr-4 py-1.5 transition-all duration-200 hover:text-cream hover:border-gold/50"
+          >
+            <span className="w-6 h-6 flex items-center justify-center rounded-full bg-bg text-gold text-[11px] shrink-0">
+              {c.icon}
+            </span>
+            {c.label}
+          </a>
+        ))}
+      </div>
+
+      <div className="bg-panel rounded-lg p-6 sm:p-8">
+        {submitted ? (
+          <div className="flex flex-col items-center justify-center text-center py-8">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" className="mb-4">
+              <line x1="9" y1="4" x2="9" y2="30" stroke="#D9A62E" strokeWidth="2.4" strokeLinecap="round" />
+              <path d="M9 5 L27 10 L9 15 Z" fill="#D9A62E" />
+            </svg>
+            <h3 className="font-display font-bold text-cream text-[19px]">
+              Flag planted.
+            </h3>
+            <p className="text-soft text-[14px] mt-2 max-w-[34ch]">
+              Your message just landed in my inbox — I'll get back to you soon.
+            </p>
+            <button
+              onClick={handleReset}
+              className="mt-5 text-[12.5px] text-gold border-b border-gold hover:text-cream hover:border-cream transition-colors duration-200"
+            >
+              Send another
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 {errors.name && (
                   <p className="text-[11.5px] text-red-400 mb-1">{errors.name}</p>
                 )}
                 <label className="block text-[11px] uppercase tracking-wide text-soft mb-1.5">
-                  Name
+                  Who's this from?
                 </label>
                 <input
                   type="text"
                   value={form.name}
                   onChange={(e) => handleChange("name", e.target.value)}
-                  placeholder="Jane Doe"
+                  placeholder="Alex Rivera"
                   className={`w-full bg-bg border rounded px-3 py-2.5 text-[14px] text-cream placeholder:text-soft/60 outline-none transition-colors duration-200 focus:border-gold ${
                     errors.name ? "border-red-400" : "border-line"
                   }`}
@@ -152,71 +153,71 @@ export default function Contact() {
                   <p className="text-[11.5px] text-red-400 mb-1">{errors.email}</p>
                 )}
                 <label className="block text-[11px] uppercase tracking-wide text-soft mb-1.5">
-                  Email
+                  Where to reach you
                 </label>
                 <input
                   type="text"
                   value={form.email}
                   onChange={(e) => handleChange("email", e.target.value)}
-                  placeholder="you@example.com"
+                  placeholder="alex@domain.com"
                   className={`w-full bg-bg border rounded px-3 py-2.5 text-[14px] text-cream placeholder:text-soft/60 outline-none transition-colors duration-200 focus:border-gold ${
                     errors.email ? "border-red-400" : "border-line"
                   }`}
                 />
               </div>
+            </div>
 
-              <div>
-                {errors.subject && (
-                  <p className="text-[11.5px] text-red-400 mb-1">{errors.subject}</p>
-                )}
-                <label className="block text-[11px] uppercase tracking-wide text-soft mb-1.5">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  value={form.subject}
-                  onChange={(e) => handleChange("subject", e.target.value)}
-                  placeholder="Project idea, job opportunity..."
-                  className={`w-full bg-bg border rounded px-3 py-2.5 text-[14px] text-cream placeholder:text-soft/60 outline-none transition-colors duration-200 focus:border-gold ${
-                    errors.subject ? "border-red-400" : "border-line"
-                  }`}
-                />
-              </div>
-
-              <div>
-                {errors.message && (
-                  <p className="text-[11.5px] text-red-400 mb-1">{errors.message}</p>
-                )}
-                <label className="block text-[11px] uppercase tracking-wide text-soft mb-1.5">
-                  Message
-                </label>
-                <textarea
-                  value={form.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  placeholder="Tell me what you're working on..."
-                  rows={4}
-                  className={`w-full bg-bg border rounded px-3 py-2.5 text-[14px] text-cream placeholder:text-soft/60 outline-none resize-none transition-colors duration-200 focus:border-gold ${
-                    errors.message ? "border-red-400" : "border-line"
-                  }`}
-                />
-              </div>
-
-              {sendError && (
-                <p className="text-[12px] text-red-400 -mb-1">
-                  Something went wrong sending your message. Please try again, or email me directly.
-                </p>
+            <div>
+              {errors.subject && (
+                <p className="text-[11.5px] text-red-400 mb-1">{errors.subject}</p>
               )}
+              <label className="block text-[11px] uppercase tracking-wide text-soft mb-1.5">
+                What's this about?
+              </label>
+              <input
+                type="text"
+                value={form.subject}
+                onChange={(e) => handleChange("subject", e.target.value)}
+                placeholder="New role, a project, or just saying hi"
+                className={`w-full bg-bg border rounded px-3 py-2.5 text-[14px] text-cream placeholder:text-soft/60 outline-none transition-colors duration-200 focus:border-gold ${
+                  errors.subject ? "border-red-400" : "border-line"
+                }`}
+              />
+            </div>
 
-              <button
-                type="submit"
-                disabled={sending}
-                className="mt-1 bg-gold text-bg font-display font-bold text-[13px] uppercase tracking-wide rounded py-3 transition-colors duration-200 hover:bg-cream disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                {sending ? "Sending..." : "Send message →"}
-              </button>
-            </form>
-          )}
-        </div>
+            <div>
+              {errors.message && (
+                <p className="text-[11.5px] text-red-400 mb-1">{errors.message}</p>
+              )}
+              <label className="block text-[11px] uppercase tracking-wide text-soft mb-1.5">
+                Tell me more
+              </label>
+              <textarea
+                value={form.message}
+                onChange={(e) => handleChange("message", e.target.value)}
+                placeholder="What are you working on, or what's on your mind?"
+                rows={4}
+                className={`w-full bg-bg border rounded px-3 py-2.5 text-[14px] text-cream placeholder:text-soft/60 outline-none resize-none transition-colors duration-200 focus:border-gold ${
+                  errors.message ? "border-red-400" : "border-line"
+                }`}
+              />
+            </div>
+
+            {sendError && (
+              <p className="text-[12px] text-red-400 -mb-1">
+                That didn't go through — try again, or email me directly.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={sending}
+              className="mt-1 bg-gold text-bg font-display font-bold text-[13px] uppercase tracking-wide rounded py-3 transition-colors duration-200 hover:bg-cream disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {sending ? "Sending..." : "Connect with me →"}
+            </button>
+          </form>
+        )}
       </div>
     </Pitch>
   );
